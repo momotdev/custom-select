@@ -34,6 +34,7 @@ const select = new CustomSelect('my-custom-select-languages', {
 	}
 })
 ```
+5. Add to `<head>` element, link to fontawesome `<link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">`. (For arrow icons).
 
 ### Description of the passed arguments:
 **First argument:**\
