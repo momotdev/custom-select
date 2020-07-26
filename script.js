@@ -1,5 +1,5 @@
 const getCustomSelectTemplate = (data = [], placeholder, selectedId) => {
-	let phText = placeholder || 'Выберите елемент из списка:';
+	let phText = placeholder || 'Select an item from the list:';
 	const items = data.map((i) => {
 		let classes = '';
 		if (i.id === selectedId) {
@@ -102,7 +102,7 @@ class CustomSelect {
 }
 
 const select = new CustomSelect('select', {
-	placeholder: 'Выберите елемент из списка:',
+	placeholder: 'Select an item from the list:',
 	selectedId: null,
 	selectWidth: 'parent',
 	selectStylingClass: 'custom-select',
@@ -120,7 +120,3 @@ const select = new CustomSelect('select', {
 		console.log('Selected item: ', item);
 	}
 })
-
-window.s = select;
-
-// TODO: scroll color
