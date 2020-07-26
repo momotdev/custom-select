@@ -101,9 +101,9 @@ class CustomSelect {
 	}
 }
 
-const select = new CustomSelect('select', {
+const select = new CustomSelect('my-custom-select-languages', {
 	placeholder: 'Select an item from the list:',
-	selectedId: null,
+	selectedId: '1',
 	selectWidth: 'parent',
 	selectStylingClass: 'custom-select',
 	data: [
