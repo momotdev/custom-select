@@ -55,10 +55,14 @@ As the second argument, we pass an `object with the settings` of our select.
 - `select.open()` - opens dropdown.
 - `select.close()` - closes dropdown.
 - `select.toggle()` - toggles dropdown.
+- `select.addItem(id, value)` - add new item to dropdown and refresh list.
+- `select.addItems(array)` - (array with objects like in `data`) add new items to dropdown and refresh list.
+- `select.deleteItem(id)` - delete id from` list and refresh it.
 - `select.destroy()` - deleting select innerHTML.
 
 ### Properties:
 - `select.current` - returns object with selected value.
+- `select.selectedId` - returns ID of selected item.
 - `select.isOpen` - returns true / false. True if dropdown opened.
 
 

@@ -44,8 +44,12 @@ class CustomSelect {
 	#setup() {
 		this.clickHandler = this.clickHandler.bind(this);
 		this.select.addEventListener('click', this.clickHandler);
-		this.arrow = this.select.querySelector('[data-type="arrow"]')
-		this.value = this.select.querySelector('[data-type="value"]')
+		this.#initVariables();
+	}
+
+	#initVariables() {
+		this.arrow = this.select.querySelector('[data-type="arrow"]');
+		this.value = this.select.querySelector('[data-type="value"]');
 	}
 
 	clickHandler(event) {
@@ -69,13 +73,49 @@ class CustomSelect {
 		return this.options.data.find((i) => i.id === this.selectedId);
 	}
 
+	addItem(id, value) {
+		if (!this.options.data.some((i) => i.id === id)) {
+			const obj = {
+				'id': String(id),
+				'value': value,
+			}
+			this.options.data.push(obj);
+		}
+
+		this.#render();
+		this.#initVariables();
+	}
+
+	addItems(array) {
+		for (const item of array) {
+			if (!this.options.data.some((i) => i.id === item.id)) {
+				this.options.data.push(item);
+			}
+		}
+
+		this.#render();
+		this.#initVariables();
+	}
+
+	deleteItem(id) {
+		const index = this.options.data.findIndex((i) => i.id === String(id));
+		if (index != -1) {
+			this.options.data.splice(index, 1);
+		}
+		this.#render();
+		this.#initVariables();
+	}
+
+	deleteItems() {
+		//TODO
+	}
+
 	selectItem(id) {
 		this.selectedId = id;
 		this.value.textContent = this.current.value;
 		this.select.querySelectorAll(`[data-type="item"]`).forEach((i) => i.classList.remove('selected'));
 		this.select.querySelector(`[data-id="${id}"]`).classList.add('selected');
 		this.close();
-
 		this.options.onSelect ? this.options.onSelect(this.current) : null;
 	}
 
