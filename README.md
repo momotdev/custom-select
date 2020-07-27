@@ -57,7 +57,8 @@ As the second argument, we pass an `object with the settings` of our select.
 - `select.toggle()` - toggles dropdown.
 - `select.addItem(id, value)` - add new item to dropdown and refresh list.
 - `select.addItems(array)` - (array with objects like in `data`) add new items to dropdown and refresh list.
-- `select.deleteItem(id)` - delete id from` list and refresh it.
+- `select.deleteItem(id)` - delete id from list and refresh it.
+- `select.deleteAllItems()` - delete all items from list ans show placeholder.
 - `select.destroy()` - deleting select innerHTML.
 
 ### Properties:

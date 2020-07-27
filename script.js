@@ -106,8 +106,10 @@ class CustomSelect {
 		this.#initVariables();
 	}
 
-	deleteItems() {
-		//TODO
+	deleteAllItems() {
+		this.options.data.length = 0;
+		this.#render();
+		this.#initVariables();
 	}
 
 	selectItem(id) {
