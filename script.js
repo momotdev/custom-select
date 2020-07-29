@@ -6,6 +6,7 @@ const getCustomSelectTemplate = (data = [], placeholder, selectedId) => {
 			phText = i.value;
 			classes = 'selected';
 		}
+		// TODO check duplicates in init data
 		return `<li class='custom-select__item ${classes}' data-type='item' data-id='${i.id}'>${i.value}</li>`
 	});
 	return `
@@ -73,6 +74,10 @@ class CustomSelect {
 		return this.options.data.find((i) => i.id === this.selectedId);
 	}
 
+	get selectElement() {
+		return this.select;
+	}
+
 	addItem(id, value) {
 		if (!this.options.data.some((i) => i.id === id)) {
 			const obj = {
@@ -119,6 +124,7 @@ class CustomSelect {
 		this.select.querySelector(`[data-id="${id}"]`).classList.add('selected');
 		this.close();
 		this.options.onSelect ? this.options.onSelect(this.current) : null;
+		this.select.dispatchEvent(new Event('change'));
 	}
 
 	toggle() {

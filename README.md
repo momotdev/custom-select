@@ -62,8 +62,9 @@ As the second argument, we pass an `object with the settings` of our select.
 - `select.destroy()` - deleting select innerHTML.
 
 ### Properties:
-- `select.current` - returns object with selected value.
+- `select.current` - returns object with selected item.
 - `select.selectedId` - returns ID of selected item.
 - `select.isOpen` - returns true / false. True if dropdown opened.
+- `select.selectElement` - returns select HTMLElement.
 
 
